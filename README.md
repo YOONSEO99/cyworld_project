@@ -48,16 +48,16 @@ Action: Refactored database queries to provide the necessary context for fronten
 Clone the repository
 
 ```bash
-   git clone [https://github.com/YOONSEO99/cyworld_server.git](https://github.com/YOONSEO99/cyworld_server.git)
+   git clone [https://github.com/YOONSEO99/cyworld_server.git](https://github.com/YOONSEO99/cyworld_server.git)```
 
 Install dependencies
 
 ```bash
-npm install
+npm install```
 
 Setup Environment Variables Create a .env file and add your PostgreSQL credentials and JWT_SECRET.
 
 Run the server
 
 ```bash
-npm start
+npm start```
