@@ -1,0 +1,120 @@
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.signup-container {
+    background: white;
+    padding: 60px 50px;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    width: 420px;
+    text-align: center;
+}
+
+h2 {
+    color: #222;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 300; 
+}
+
+h2 span {
+    color: #2F83C1;
+    font-weight: 700; 
+}
+
+img{
+    width: 200px;
+    height: 200px;
+}
+
+.upload-label{
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: white;
+    color: #2F83c1;
+    border: 1px solid #2F83C1;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.upload-label:hover{
+    background-color: #f0f7ff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left; 
+}
+
+form label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 600;
+    margin-left: 2px;
+}
+
+input {
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    width: 100%; /* 부모 너비에 맞춤 */
+    font-size: 15px;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2F83C1;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(47, 131, 193, 0.1); 
+}
+
+button {
+    background-color: #2F83C1;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #266da1;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #999;
+}
+
+.footer a {
+    color: #2F83C1;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

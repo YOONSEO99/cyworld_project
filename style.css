@@ -1,0 +1,570 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    /* 더 모던한 폰트 스택 */
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f0f2f5;
+}
+
+#canvas {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    /*가로 중앙 정렬*/
+    align-items: center;
+    /*세로 중앙 정렬*/
+    background-color: #f0f0f0;
+    /* 배경색 살짝 추가 */
+}
+
+#frame {
+    display: flex;
+    /*자식들을 가로로 나란히 배치*/
+    width: 1200px;
+    height: 800px;
+    padding: 50px;
+    gap: 20px;
+    background-color: lightblue;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 40px;
+}
+
+/*자식들의 비율 정하기*/
+#sidebar {
+    flex: 3;
+    /*30%*/
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+/* 공통 사용되는 상단 탭 버튼 클래스 */
+.tab-button {
+    background-color: #2F83C1;
+    color: #ffff;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#cyworld_name {
+    width: 250px;
+    height: 60px;
+    position: absolute;
+    top: -30px;
+    left: 50px;
+}
+
+/* 이름표 버튼만 폰트 크게 */
+.name-label {
+    width: 100%;
+    height: 100%;
+    font-size: large !important;
+}
+
+#profile_image {
+    width: 100%;
+    height: 300px;
+    background-color: lightblue;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+#profile_image,
+#profile_detail_image img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+    object-position: center;
+
+}
+
+#dotori {
+    border-radius: 20px;
+    padding: 10px 0;
+    border: 1px solid black;
+    background-color: #947958;
+    color: #ffff;
+    font-size: medium;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#message {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #b983ff, #8ec5fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#logout_btn {
+    margin-top: 20px;
+    border: none;
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    -webkit-text-fill-color: red;
+    cursor: pointer;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+#main {
+    flex: 7;
+    /*70%*/
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* Board와 Visitor 사이의 간격 */
+    padding: 40px 20px 20px 20px;
+    /* 위쪽 탭이 들어올 공간 확보 */
+    background-color: #ffff;
+    border: 1px solid black;
+}
+
+#home-view {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+}
+
+#profile-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*가로 중앙 정렬*/
+    justify-content: center;
+    /*세로 중앙 정렬*/
+    height: 100%;
+    gap: 30px;
+}
+
+#profile-detail-image {
+    width: 300px;
+    height: 300px;
+    background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#profile-name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    background: linear-gradient(90deg, #b983ff, #8ec5fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#profile-detail-info p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+#profile-dotori {
+    text-align: center;
+}
+
+#profile-setting-btn {
+    margin-top: 5px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#board-view,
+#visitor-view {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#board,
+#visitor {
+    flex: 1;
+    /* 위아래 반반씩 나눠 갖기 */
+    background-color: #2F83C1;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid black;
+}
+
+/* 메인 섹션의 탭 버튼 위치 지정 */
+#board .tab-button,
+#visitor .tab-button {
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    top: -30px;
+    left: 10px;
+}
+
+.board-content-box {
+    margin: 15px;
+    border-radius: 15px;
+    /* calc 연산자 앞뒤 공백 수정 완료 */
+    height: calc(100% - 30px);
+    background-color: #ffff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.board-row,
+.visitor-row {
+    display: flex;
+    padding: 10px 5px;
+    border-bottom: 1px dashed #ccc;
+    font-size: 0.9rem;
+}
+
+.header {
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+}
+
+.board-col-id {
+    flex: 1;
+    text-align: center;
+}
+
+.board-col-title {
+    flex: 5;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.board-col-writer {
+    flex: 2;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.board-col-date {
+    flex: 2;
+    text-align: center;
+}
+
+.board-btn {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+#new-post-btn {
+    background-color: #2F83C1;
+    color: white
+}
+
+/* 상세 페이지 컨테이너 */
+.board-detail-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px dashed #414141;
+    /* 싸이월드 전매특허 점선 테두리 */
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 13px;
+    /* 당시 국룰 폰트 사이즈 */
+    color: #333;
+}
+
+/* 제목 영역 */
+.board-detail-container h3 {
+    font-size: 16px;
+    color: #2980b9;
+    /* 싸이월드 포인트 블루 */
+    border-bottom: 2px solid #dbd6d6;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+/* 게시글 정보 (ID, 날짜) */
+.post-info {
+    font-size: 11px;
+    color: #414141;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+/* 본문 내용 */
+.post-content {
+    min-height: 150px;
+    line-height: 1.6;
+    padding: 10px 5px;
+    word-break: break-all;
+}
+
+/* 구분선 */
+.board-detail-container hr {
+    border: 0;
+    border-top: 1px solid #dbd6d6;
+    margin: 15px 0;
+}
+
+/* 버튼 영역 */
+.detail-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+/* 버튼 공통 스타일 */
+.detail-buttons button,
+.back-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #666;
+}
+
+.detail-buttons button:hover,
+.back-btn:hover {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.visitor-content-box {
+    margin: 15px;
+    border-radius: 15px;
+    /* calc 연산자 앞뒤 공백 수정 완료 */
+    height: calc(100% - 30px);
+    border: 2px solid #f0f0f0;
+    color: #f0f0f0;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.visitor-col-writer {
+    flex: 2;
+    text-align: center;
+    color: #FFB6C1;
+    /* lightpink의 헥사 코드예요. 더 예쁜 분홍색이죠! */
+    font-weight: bold;
+    /* 이름이니까 조금 더 진하게 보이면 좋겠죠? */
+}
+
+.visitor-col-content {
+    flex: 5;
+    padding-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.visitor-col-date {
+    flex: 2;
+    text-align: center;
+}
+
+.visitor-col-action {
+    flex: 1;
+    /* 삭제 버튼을 위한 작은 공간 */
+}
+
+.visitor-input-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px dashed #ccc;
+}
+
+#visitor-input {
+    flex: 1;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    resize: none;
+}
+
+.del-btn {
+    padding: 2px 5px;
+    font-size: 10px;
+    background: none;
+    border: 1px solid #ffb6c1;
+    color: #ff6b6b;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.del-btn:hover {
+    background: #fff0f0;
+}
+
+#navigation {
+    width: 90px;
+    height: 250px;
+    border-radius: 0 10px 10px 0;
+    position: absolute;
+    right: -60px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px 0;
+    border: 1px solid black;
+    background-color: #2F83C1;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    color: #ffff;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 모달 전체 배경 */
+#edit-profile-modal,
+#edit-post-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+    /* 약간 어둡게 */
+    backdrop-filter: blur(4px);
+    /* 배경 흐림 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 모달 박스 */
+#edit-container {
+    background: #ffffff;
+    /* 흰색 유지 */
+    width: 360px;
+    padding: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    /* 은은한 그림자 */
+    text-align: center;
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+    /* 깔끔한 UI 글꼴 */
+}
+
+/* 제목 */
+#edit-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #2F83C1;
+    /* 기존 메뉴 버튼 색과 동일 */
+    font-weight: 600;
+}
+
+/* 입력 필드 */
+#edit-container input[type="text"],
+#edit-container input[type="password"],
+#edit-container input[type="file"] {
+    width: 95%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: #fdfdfd;
+    transition: 0.2s;
+}
+
+#edit-container input[type="text"]:focus,
+#edit-container input[type="password"]:focus {
+    border-color: #2F83C1;
+    box-shadow: 0 0 8px rgba(47, 131, 193, 0.3);
+    outline: none;
+}
+
+/* 버튼 공통 */
+#edit-container button {
+    width: 45%;
+    padding: 10px 0;
+    margin: 10px 2.5%;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 저장 버튼 */
+#save-profile-btn,
+#save-post-btn,
+#save-visitor-btn {
+    background-color: #2F83C1;
+    /* 메뉴 색과 동일 */
+    color: #fff;
+}
+
+#save-profile-btn:hover,
+#save-post-btn:hover,
+#save-visitor-btn:hover {
+    background-color: #3ea0e0;
+    transform: translateY(-2px);
+}
+
+/* 취소 버튼 */
+#cancel-profile-btn,
+#cancel-post-btn {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+#cancel-profile-btn:hover,
+#cancel-post-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* 모바일 대응 */
+@media screen and (max-width: 400px) {
+    #edit-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cyworld 2026</title>
+    <link rel="stylesheet" href="signupStyle.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>Cyworld <span>2026</span></h2>
+        <div class="profile-section">
+            <img src="images/default_profile.png" id="profilePreview">
+
+            <label for="imageInput" class="upload-label">Select Image</label>
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        </div>
+        <form id="signupForm">
+            <label>Email</label>
+            <input type="text" id="email" placeholder="input your email">
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="input your password">
+
+            <label>Username</label>
+            <input type="text" id="username" placeholder="input your username">
+
+            <label>Cyworld Name</label>
+            <input type="text" id="cyworld_name" placeholder="input your cyworld name">
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="footer">
+            Are you already a member? <a href="login.html">Login</a>
+        </div>
+    </div>
+    <script src="signupJS.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cyworld 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="canvas">
+        <div id="frame">
+            <div id="sidebar">
+                <div id="cyworld_name">
+                    <button class="tab-button name-label"></button>
+                </div>
+                <div id="profile_image">
+                    <img id="profile-pic" style="width: 100%; height: 300px;">
+                </div>
+                <div id="dotori">
+                    <img src="images/dotori.png" style="width: 20px; vertical-align:middle">
+                </div>
+                <div id="message">
+                    <button id="logout_btn">Logout</button>
+                </div>
+            </div>
+
+            <div id="main">
+                <div id="home-view" class="content-section">
+                    <div id="board">
+                        <button class="tab-button">Board</button>
+                        <div class="board-content-box">
+                            <div class="board-row header">
+                                <span class="board-col-id">Number</span>
+                                <span class="board-col-title">Title</span>
+                                <span class="board-col-writer">Writer</span>
+                                <span class="board-col-date">Date</span>
+                            </div>
+                            <div id="home-board-list"></div>
+                        </div>
+                    </div>
+                    <div id="visitor">
+                        <button class="tab-button">Visitor</button>
+                        <div class="visitor-content-box">
+                            <div class="visitor-row header">
+                                <span class="visitor-col-writer">Writer</span>
+                                <span class="visitor-col-content">Content</span>
+                                <span class="visitor-col-date">Date</span>
+                                <span class="visitor-col-action"></span>
+                            </div>
+                            <div id="home-visitor-list"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="profile-view" class="content-section" style="display: none;">
+                    <div id="profile-detail-container">
+                        <div id="profile-detail-image">
+                            <img src="images/default_profile.png" style="width: 100%; height: 300px;">
+                            <input type="file" id="image-upload-input" style="display: none;" accept="image/*">⚙️upload
+                        </div>
+                        <div id="profile-detail-info">
+                            <div id="profile-dotori">
+                                <img src="images/dotori.png" style="width: 20px; vertical-align:middle">
+                            </div>
+                            <h2 id="profile-name"></h2>
+                            <p id="profile-message"></p>
+                            <h4 id="profile-setting-btn">⚙️setting</h4>
+                        </div>
+                    </div>
+                </div>
+                <div id="board-view" class="content-section" style="display: none;">
+                    <div id="board">
+                        <button class="tab-button">Board</button>
+                        <div class="board-content-box">
+                            <div class="board-btn">
+                                <button id="new-post-btn" class="back-btn">New Post</button>
+                            </div>
+                            <div class="board-row header">
+                                <span class="board-col-id">Number</span>
+                                <span class="board-col-title">Title</span>
+                                <span class="board-col-writer">Writer</span>
+                                <span class="board-col-date">Date</span>
+                            </div>
+                            <div id="full-board-list"></div>
+                            <div id="single-board"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="visitor-view" class="content-section" style="display: none;">
+                    <div id="visitor">
+                        <button class="tab-button">Visitor</button>
+                        <div class="visitor-content-box">
+                            <div class="visitor-input-container">
+                                <textarea id="visitor-input"
+                                    placeholder="Leave your message to your friend!"></textarea>
+                                <button id="save-visitor-btn" class="back-btn">Save</button>
+                            </div>
+                            <div class="visitor-row header">
+                                <span class="visitor-col-writer">Writer</span>
+                                <span class="visitor-col-content">Content</span>
+                                <span class="visitor-col-date">Date</span>
+                                <span class="visitor-col-action"></span>
+                            </div>
+                            <div id="full-visitor-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="navigation">
+                <button class="nav-btn" id="tab-home">HOME</button>
+                <button class="nav-btn" id="tab-profile">PROFILE</button>
+                <button class="nav-btn" id="tab-board">BOARD</button>
+                <button class="nav-btn" id="tab-visitor">VISITOR</button>
+            </div>
+        </div>
+    </div>
+    /*profile edit*/
+    <div id="edit-profile-modal">
+        <div id="edit-container">
+            <h3>Profile Edit</h3>
+            <input type="text" id="new-cyname" placeholder="new cyworld name">
+            <input type="text" id="new-username" placeholder="new user name">
+            <input type="password" id="new-password" placeholder="new password">
+            <input type="file" id="new-profile-img">
+            <br><br>
+            <button id="save-profile-btn">Save</button>
+            <button id="cancel-profile-btn">Cancel</button>
+        </div>
+    </div>
+    /*post edit modal*/
+    <div id="edit-post-modal">
+        <div id="edit-container">
+            <h3 id="post-modal-title">Write Post</h3>
+            <input type="text" id="new-title" placeholder="title">
+            <input type="text" id="new-content" placeholder="content">
+            <br><br>
+            <button id="save-post-btn">Save</button>
+            <button id="cancel-post-btn">Cancel</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

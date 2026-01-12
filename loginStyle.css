@@ -1,0 +1,105 @@
+/* 기본 배경 및 폰트 설정 */
+body {
+    background-color: #f8f9fa; /* 조금 더 맑은 그레이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; /* 더 모던한 폰트 스택 */
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+/* 로그인 박스: 그림자를 더 부드럽게 */
+.login-container {
+    background: white;
+    padding: 60px 50px;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* 부드러운 현대적 그림자 */
+    width: 420px;
+    text-align: center;
+}
+
+/* 타이틀: 폰트 두께 조절 */
+h2 {
+    color: #222;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 300; /* Cyworld 부분은 얇게 */
+}
+
+h2 span {
+    color: #2F83C1;
+    font-weight: 700; /* 2026 부분은 두껍게 강조 */
+}
+
+/* 폼 정렬: 라벨과 인풋을 수직으로 깔끔하게 */
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* 라벨은 왼쪽 정렬 */
+}
+
+form label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 600;
+    margin-left: 2px;
+}
+
+/* 인풋창: 너비를 100%로 꽉 채움 */
+input {
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    width: 100%; /* 부모 너비에 맞춤 */
+    font-size: 15px;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2F83C1;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(47, 131, 193, 0.1); /* 포커스 시 은은한 광채 */
+}
+
+/* 버튼: 너비를 꽉 채우고 클릭감 개선 */
+button {
+    background-color: #2F83C1;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #266da1; /* 같은 계열의 조금 더 어두운 색으로 자동 변환 */
+}
+
+/* 푸터 링크 */
+.footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #999;
+}
+
+.footer a {
+    color: #2F83C1;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
